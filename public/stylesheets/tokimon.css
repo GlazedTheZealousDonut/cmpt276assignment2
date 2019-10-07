@@ -1,0 +1,134 @@
+:root{
+    --background_color: #FFFFFF;
+    --navigation_background_color: #F9F9F9;
+    --navigation_button_color: #FFFFFF;
+
+    --normal_color: #C6C6A7;
+    --flying_color: #EE99AC;
+    --fighting_color: #A29288;
+    --fire_color: #F5AC78;
+    --water_color: #9DB7F5;
+    --electric_color: #FAE078;
+    --ice_color: #BCE6E6;
+    --white: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.description {
+    padding: 0em 0em 0em 1em;
+}
+
+#backgroundDiv {
+    display: block;
+    position: relative;
+    min-height: 60em;
+}
+
+#backgroundDiv::after {
+    content: "";
+    background-image: url("../pictures/Pokeball.png");
+    background-size: 10%;
+    opacity: 0.1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    position: absolute;
+}
+
+#navigationBar {
+    background-color: var(--navigation_background_color);
+    padding: 0em .5em 0em .5em;
+    margin: 0;
+    width: 100%;
+    font-size: 0;
+}
+
+li {
+    display: inline;
+    font-size: 10em;    
+}
+
+.navigationButton {
+    background-color: var(--navigation_button_color);
+    border: none;
+    padding: .5em;
+    margin: .25em 0em .25em 0em;
+}
+
+.navigationLink {
+    font-size: 100em;
+}
+
+/* CSS Styles for Home page */
+
+#cardRegion {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 3em;
+}
+
+.cardTitle {
+    text-align: center;
+    font-size: 150%;
+}
+
+.cardPic {
+    height: 30em;
+    width: 30em;
+}
+
+/* CSS Styles for Add page */
+
+#formDiv {
+    background-size: 100%;
+}
+
+#formTitle {
+    text-align: center;
+}
+
+#form {
+    background-color: #F9F9F9;
+    width: 40%;
+    border: 1pt solid black;
+    padding: 2em 5em 5em 5em;
+    margin: 0em 0em 0em 2em;
+}
+
+.inputsDiv {
+    text-align: center;
+}
+
+#inputTotal {
+    background-color: #F9F9F9;
+}
+
+label {
+    display: inline-block;
+    text-align: right;
+}
+
+#buttonArea {
+    text-align: center;
+}
+
+.submitButtons {
+    width: 15ems;
+    border-radius: 5%;
+}
+
+/* CSS Styles for Modify page */
+
+/* CSS Styles for Delete page */
+
+/* CSS Styles for Display page */

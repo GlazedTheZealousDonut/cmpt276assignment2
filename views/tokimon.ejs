@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title> CMPT276 Assignment 2 </title>
+    <link rel="stylesheet" href="/stylesheets/tokimon.css" type="text/css" media="all">
+    <script type="text/javascript" src="/js/tokimon.js" defer> </script>
+</head>
+<body>
+    <div id="backgroundDiv">
+        <div id="navigationBar">
+            <ul>
+                <li> 
+                    <button type="button" class="navigationButton" id="homeButton">
+                    <a class="nagivationLink" id="navigationHome" href="/"> Home </a>
+                    </button>
+                </li>
+                <li> 
+                    <button type="button" class="navigationButton" id="addButton">
+                    <a class="nagivationLink" id="navigationAdd" href="/add"> Add Tokimon </a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="modifyButton">
+                    <a class="nagivationLink" id="navigationModify" href="/modify"> Modify Tokimon</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="deleteButton">
+                    <a class="nagivationLink" id="navigationDelete" href="/delete"> Delete Tokimon</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="displayButton">
+                    <a class="nagivationLink" id="navigationDisplay" href="/display"> Display All Tokimon</a>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="description" id="homeDescription">
+        <h1> Tokimons </h1>
+        <p>
+            A Tokimon is a rare creature found in the remote areas of Korea. 
+            For the most part, they resemble rabbits 
+            and the only form of communication they have with us
+            is the ability to say their own name. 
+            Tokimons come in all shapes and sizes, 
+            have special abilities, 
+            and tend to fight with each other on occasion. 
+            Each Tokimon could have the ability to 
+            fly, fight, throw fire, spray water, electrify, and freeze other Tokimons; 
+            their ability is measured by an integer between 0 and 100. 
+            Because they are such primitive creatures but have such extraordinary abilities, 
+            they need Tokimon trainers. 
+            The trainer’s job is to collect Tokimons and use them accordingly.
+        </p>
+
+        <h2> Examples of Tokimons </h2>
+        </div>
+            <div class="card" id="cardRegion">
+                <div class="card" id="card1">
+                    <div class="cardTop" id="cardTop1"></div>
+                    <h3 class="cardTitle" id="cardTitle1"> Flying </h3>
+                    <img src="/pictures/Sylveon.png" alt="Flying Tokimon" class="cardPic" id="cardPic1">
+                    <div class="cardButtom" id="cardButtom1"></div>
+                </div>
+
+                <div class="card" id="card2">
+                    <div class="cardTop" id="cardTop2"></div>
+                    <h3 class="cardTitle" id="cardTitle2"> Fighting </h3>
+                    <img src="/pictures/Umbreon.png" alt="Fighting Tokimon" class="cardPic" id="cardPic2">
+                    <div class="cardButtom" id="cardButtom2"></div>
+                </div>
+
+                <div class="card" id="card3">
+                    <div class="cardTop" id="cardTop3"></div>
+                    <h3 class="cardTitle" id="cardTitle3"> Fire </h3>
+                    <img src="/pictures/Flareon.png" alt="Fire Tokimon" class="cardPic" id="cardPic3">
+                    <div class="cardButtom" id="cardButtom3"></div>
+                </div>
+
+                <span id="cardSpace"> </span>
+
+                <div class="card" id="card4">
+                    <div class="cardTop" id="cardTop4"></div>
+                    <h3 class="cardTitle" id="cardTitle4"> Water </h3>
+                    <img src="/pictures/Vaporeon.png" alt="Water Tokimon" class="cardPic" id="cardPic4">
+                    <div class="cardButtom" id="cardButtom4"></div>
+                </div>
+
+                <div class="card" id="card5">
+                    <div class="cardTop" id="cardTop5"></div>
+                    <h3 class="cardTitle" id="cardTitle5"> Electric </h3>
+                    <img src="/pictures/Jolteon.png" alt="Electric Tokimon" class="cardPic" id="cardPic5"> 
+                    <div class="cardButtom" id="cardButtom5"></div>
+                </div>
+
+                <div class="card" id="card6">
+                    <div class="cardTop" id="cardTop6"></div>
+                    <h3 class="cardTitle" id="cardTitle6"> Ice </h3>
+                    <img src="/pictures/Glaceon.png" alt="Ice Tokimon" class="cardPic" id="cardPic6">
+                    <div class="cardButtom" id="cardButtom6"></div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
