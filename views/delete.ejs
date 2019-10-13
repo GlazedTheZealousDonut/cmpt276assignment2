@@ -7,24 +7,72 @@
     <script type="text/javascript" src="/js/tokimon.js" defer> </script>
 </head>
 <body>
+    <div id="backgroundDiv">
+        <div id="navigationBar">
+            <ul>
+                <li> 
+                    <button type="button" class="navigationButton" id="homeButton">
+                    <a class="nagivationLink" id="navigationHome" href="/"> Home </a>
+                    </button>
+                </li>
+                <li> 
+                    <button type="button" class="navigationButton" id="addButton">
+                    <a class="nagivationLink" id="navigationAdd" href="/add"> Add Tokimon </a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="modifyButton">
+                    <a class="nagivationLink" id="navigationModify" href="/modify"> Modify Tokimon</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="deleteButton">
+                    <a class="nagivationLink" id="navigationDelete" href="/delete"> Delete Tokimon</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="displayButton">
+                    <a class="nagivationLink" id="navigationDisplay" href="/display"> Display All Tokimon</a>
+                    </button>
+                </li>
+            </ul>
+        </div>
 
-    <ul id="navigationBar">
-        <li class="navigationButton" id="homeButton"> 
-            <a href="/"> Home </a>
-        </li>
-        <li class="navigationButton" id="addButton"> 
-            <a href="/add"> Add Tokimon</a>
-        </li>
-        <li class="navigationButton" id="modifyButton">
-            <a href="/modify"> Modify Tokimon</a>
-        </li>
-        <li class="navigationButton" id="modifyButton">
-            <a href="/delete"> Delete Tokimon</a>
-        </li>
-        <li class="navigationButton" id="displayButton">
-            <a href="/display"> Display All Tokimon</a>
-        </li>
-    </ul>
+        <div class="description" id="deleteDescription">
+        <h1> Delete a Tokimon </h1>
+        <p> To delete a Tokimon from the database, please select which Tokimon should be deleted by checking
+            the Tokimon with the checkbox on the left.
+        </p>
+        </div>
 
+        <div id="deleteFormDiv">
+            <form id="deleteForm" action="/process.js" method="post">
+                <div id="deleteFormTitle"><h1> Select a Tokimon to Delete </h1></div>
+                <div id="formDiv">
+                    <table id="deleteTable">
+                        <th class=deleteTableHeader id="deleteHeaderSelection"> Select </th>
+                        <th class=deleteTableHeader id="deleteHeaderName"> Tokimon Name </th>
+                        <th class=deleteTableHeader id="deleteHeaderHeight"> Height </th>
+                        <th class=deleteTableHeader id="deleteHeaderWeight"> Weight </th>
+                        <th class=deleteTableHeader id="deleteHeaderFlying"> Flying Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderFighting"> Fighting Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderFire"> Fire Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderWater"> Water Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderElectric"> Electric Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderIce"> Ice Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderTotal"> Total Power </th>
+                        <th class=deleteTableHeader id="deleteHeaderTrainerName"> Trainer Name </th>
+                    </table>
+
+                    <br>
+                    <div id="buttonArea">
+                        <button class="submitButtons" id="resetButton" type="reset"> Reset </button>
+                        <button class="submitButtons" id="randomizeButton" type="button"> Randomize! </button>
+                        <button class="submitButtons" id="submitButton" type="submit"> Submit </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

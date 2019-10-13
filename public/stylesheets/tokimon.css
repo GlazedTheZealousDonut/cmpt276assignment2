@@ -71,6 +71,7 @@ li {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-width: 25em;
 }
 
 .card {
@@ -83,8 +84,32 @@ li {
 }
 
 .cardPic {
-    height: 30em;
-    width: 30em;
+    height: 25em;
+    width: 25em;
+}
+
+#card1 {
+    background-color: var(--flying_color);
+}
+
+#card2 {
+    background-color: var(--fighting_color);
+}
+
+#card3 {
+    background-color: var(--fire_color);
+}
+
+#card4 {
+    background-color: var(--water_color);
+}
+
+#card5 {
+    background-color: var(--electric_color);
+}
+
+#card6 {
+    background-color: var(--ice_color);
 }
 
 /* CSS Styles for Add page */
