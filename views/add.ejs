@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> CMPT276 Assignment 2 </title>
-    <link rel="stylesheet" href="/stylesheets/tokimon.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/stylesheets/add.css" type="text/css" media="all">
     <script type="text/javascript" src="/js/tokimon.js" defer> </script>
 </head>
 <body>
@@ -12,27 +12,17 @@
             <ul>
                 <li> 
                     <button type="button" class="navigationButton" id="homeButton">
-                    <a class="nagivationLink" id="navigationHome" href="/"> Home </a>
+                    <a class="nagivationLink" id="navigationHome" href="/"> <h6>Home</h6> </a>
                     </button>
                 </li>
                 <li> 
                     <button type="button" class="navigationButton" id="addButton">
-                    <a class="nagivationLink" id="navigationAdd" href="/add"> Add Tokimon </a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="navigationButton" id="modifyButton">
-                    <a class="nagivationLink" id="navigationModify" href="/modify"> Modify Tokimon</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="navigationButton" id="deleteButton">
-                    <a class="nagivationLink" id="navigationDelete" href="/delete"> Delete Tokimon</a>
+                    <a class="nagivationLink" id="navigationAdd" href="/add"> <h6>Add Tokimon</h6> </a>
                     </button>
                 </li>
                 <li>
                     <button type="button" class="navigationButton" id="displayButton">
-                    <a class="nagivationLink" id="navigationDisplay" href="/display"> Display All Tokimon</a>
+                    <a class="nagivationLink" id="navigationDisplay" href="/display"> <h6>Display All Tokimon</h6></a>
                     </button>
                 </li>
             </ul>
@@ -51,7 +41,7 @@
                 <div id="formDiv">
                     <div class="inputsDiv">
                     <label for="name">Tokimon Name:</label>
-                    <input class="inputs" id="inputName" type="text" name="name" placeholder="Toki"><br>
+                    <input class="inputs" id="inputName" type="text" name="name" placeholder="Toki" required><br>
                     </div>
 
                     <div class="inputsDiv">
@@ -101,7 +91,7 @@
 
                     <div class="inputsDiv">
                     <label for="trainerName">Trainer Name:</label>
-                    <input class="inputs" id="inputTrainerName" type="text" name="trainerName" placeholder="Toki Trainer"><br>
+                    <input class="inputs" id="inputTrainerName" type="text" name="trainerName" placeholder="Toki Trainer" required><br>
                     </div>
 
                     <br>

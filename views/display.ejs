@@ -3,68 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <title> CMPT276 Assignment 2 </title>
-    <link rel="stylesheet" href="/stylesheets/tokimon.css" type="text/css" media="all">
-    <script type="text/javascript" src="/js/tokimon.js" defer> </script>
+    <link rel="stylesheet" href="/stylesheets/display.css" type="text/css" media="all">
 </head>
 <body>
-    <ul id="navigationBar">
-        <li> 
-            <button type="button" class="navigationButton" id="homeButton">
-            <a class="nagivationLink" id="navigationHome" href="/"> Home </a>
-            </button>
-        </li>
-        <li> 
-            <button type="button" class="navigationButton" id="addButton">
-            <a class="nagivationLink" id="navigationAdd" href="/add"> Add Tokimon </a>
-            </button>
-        </li>
-        <li>
-            <button type="button" class="navigationButton" id="modifyButton">
-            <a class="nagivationLink" id="navigationModify" href="/modify"> Modify Tokimon</a>
-            </button>
-        </li>
-        <li>
-            <button type="button" class="navigationButton" id="deleteButton">
-            <a class="nagivationLink" id="navigationDelete" href="/delete"> Delete Tokimon</a>
-            </button>
-        </li>
-        <li>
-            <button type="button" class="navigationButton" id="displayButton">
-            <a class="nagivationLink" id="navigationDisplay" href="/display"> Display All Tokimon</a>
-            </button>
-        </li>
-    </ul>
+    <div id="backgroundDiv">
+        <div id="navigationBar">
+            <ul>
+                <li> 
+                    <button type="button" class="navigationButton" id="homeButton">
+                    <a class="nagivationLink" id="navigationHome" href="/"> <h6>Home</h6> </a>
+                    </button>
+                </li>
+                <li> 
+                    <button type="button" class="navigationButton" id="addButton">
+                    <a class="nagivationLink" id="navigationAdd" href="/add"> <h6>Add Tokimon</h6> </a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="navigationButton" id="displayButton">
+                    <a class="nagivationLink" id="navigationDisplay" href="/display"> <h6>Display All Tokimon</h6></a>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id=displayDescription>
+        <h1> Tokimon Database </h1>
+        <p> This is a list of all currently known Tokimons. Click view beside any Tokimon to view more details about it or to update its attributes.</p>
+        </div>
+        <form id="form" action="/remove" method="post">
+            <table>
+                <div>
+                <tr>
+                    <th class="displayHeader" id="idHeader">Tokimon ID</th>
+                    <th class="displayHeader" id="nameHeader">Tokimon Name</th>
+                    <th class="displayHeader" id="heightHeader">Height</th>
+                    <th class="displayHeader" id="weightHeader">Weight</th>
+                    <th class="displayHeader" id="elementHeader">Primary Element</th>
+                    <th class="displayHeader" id="flyingHeader">Flying</th>
+                    <th class="displayHeader" id="fightingHeader">Fighting</th>
+                    <th class="displayHeader" id="fireHeader">Fire</th>
+                    <th class="displayHeader" id="waterHeader">Water</th>
+                    <th class="displayHeader" id="electricHeader">Electric</th>
+                    <th class="displayHeader" id="iceHeader">Ice</th>
+                    <th class="displayHeader" id="totalHeader">Total</th>
+                    <th class="displayHeader" id="trainerHeader">Trainer Name</th>
+                    <th class="displayHeader" id="viewHeader">View</th>
+                    <th class="displayHeader" id="selectHeader">Delete</th>
+                </tr>
+                <%for(var i=0; i<rows.length; i++) {%>
+                    <% if (rows[i].flying > Math.max(rows[i].fighting, rows[i].fire, rows[i].water, rows[i].electric, rows[i].ice)) { %>
+                        <tr bgcolor="#EE99AC">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Flying </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else if (rows[i].fighting > Math.max(rows[i].flying, rows[i].fire, rows[i].water, rows[i].electric, rows[i].ice)) { %>
+                        <tr bgcolor="#A29288">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Fighting </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else if (rows[i].fire > Math.max(rows[i].flying, rows[i].fighting, rows[i].water, rows[i].electric, rows[i].ice)) { %>
+                        <tr bgcolor="#F5AC78">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Fire </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else if (rows[i].water > Math.max(rows[i].flying, rows[i].fighting, rows[i].fire, rows[i].electric, rows[i].ice)) { %>
+                        <tr bgcolor="#9DB7F5">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Water </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else if (rows[i].electric > Math.max(rows[i].flying, rows[i].fighting, rows[i].fire, rows[i].water, rows[i].ice)) { %>
+                        <tr bgcolor="#FAE078">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Electric </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else if (rows[i].ice > Math.max(rows[i].flying, rows[i].fighting, rows[i].fire, rows[i].water, rows[i].electric)) { %>
+                        <tr bgcolor="#BCE6E6">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Ice </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } else {%>
+                        <tr bgcolor="#C6C6A7">
+                            <td><%= rows[i].tid %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].height %></td>
+                            <td><%= rows[i].weight %></td>
+                            <td> Multiple </td>
+                            <td><%= rows[i].flying %></td>
+                            <td><%= rows[i].fighting %></td>
+                            <td><%= rows[i].fire %></td>
+                            <td><%= rows[i].water %></td>
+                            <td><%= rows[i].electric %></td>
+                            <td><%= rows[i].ice %></td>
+                            <td><%= rows[i].total %></td>
+                            <td><%= rows[i].trainername %></td>
+                            <td><a href='/display/<%=rows[i].tid%>'>View</a></td>
+                            <td><a href='/remove/<%=rows[i].tid%>'>Delete</a></td>
+                        </tr>
+                    <% } %>
 
-    <div class="card" id="card1">
-        <div class="cardTop" id="cardTop1"></div>
-        <div class="cardButtom" id="cardButtom1"></div>
+                <% } %>
+                </div>
+            </table>
+            <br>
+        </form>
     </div>
-
-    <div class="card" id="card2">
-        <div class="cardTop" id="cardTop2"></div>
-        <div class="cardButtom" id="cardButtom2"></div>
-    </div>
-
-    <div class="card" id="card3">
-        <div class="cardTop" id="cardTop3"></div>
-        <div class="cardButtom" id="cardButtom3"></div>
-    </div>
-
-    <div class="card" id="card4">
-        <div class="cardTop" id="cardTop4"></div>
-        <div class="cardButtom" id="cardButtom4"></div>
-    </div>
-
-    <div class="card" id="card5">
-        <div class="cardTop" id="cardTop5"></div>
-        <div class="cardButtom" id="cardButtom5"></div>
-    </div>
-
-    <div class="card" id="card6">
-        <div class="cardTop" id="cardTop6"></div>
-        <div class="cardButtom" id="cardButtom6"></div>
-    </div>
-
-    <div class="buttons" id="buttons"></div>
 </body>
 </html>

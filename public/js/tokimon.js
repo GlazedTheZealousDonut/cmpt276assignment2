@@ -132,10 +132,16 @@ function sumTotal() {
 }
 
 /*
-    Automatically Update Total Number on KeyPress
+    Automatically Update Total Number on KeyPress/Click
 */
 inputArray.forEach(function(element) {
     element.addEventListener("keyup", function() {
+        setTotal(sumTotal());
+    }
+)});
+
+inputArray.forEach(function(element) {
+    element.addEventListener("click", function() {
         setTotal(sumTotal());
     }
 )});

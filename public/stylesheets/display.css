@@ -66,110 +66,56 @@ h6 {
     font-size: 2em;
     padding: .5em 1em .5em 0em;
     margin: 0em;
-}
-
-/* CSS Styles for Home page */
-
-#cardRegion {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 25em;
-}
-
-.card {
-    margin: 3em;
-}
-
-.cardTitle {
-    text-align: center;
-    font-size: 150%;
-}
-
-.cardPic {
-    height: 25em;
-    width: 25em;
-}
-
-.card {
-    border: 5pt solid var(--border_color);
-    border-radius: 5%;
-}
-
-#card1 {
-    background-color: var(--flying_color);
-}
-
-#card2 {
-    background-color: var(--fighting_color);
-}
-
-#card3 {
-    background-color: var(--fire_color);
-}
-
-#card4 {
-    background-color: var(--water_color);
-}
-
-#card5 {
-    background-color: var(--electric_color);
-}
-
-#card6 {
-    background-color: var(--ice_color);
-}
-
-p {
-    text-align: center;
-}
-
-a {
     color: black;
 }
 
 /* CSS Styles for Add page */
 
-#formDiv {
-    background-size: 100%;
+#displayDescription {
+    padding: 0em 0em 0em 3em;
 }
 
-#formTitle {
-    text-align: center;
+table {
+    margin: 1em auto auto auto;
+    padding: 1em;
+    border: 5pt solid var(--border_color);
+    background-color: white;
 }
 
-#form {
-    background-color: #F9F9F9;
-    width: 40%;
+th {
+    background-color: white;
     border: 1pt solid black;
-    padding: 2em 5em 5em 5em;
-    margin: 0em 0em 0em 2em;
+    width: 5em;
 }
 
-.inputsDiv {
+#selectHeader {
+    width: 4em;
+}
+
+#viewHeader {
+    width: 4em;
+}
+
+#idHeader {
+    width: 6em;
+}
+
+#nameHeader {
+    width: 10em;
+}
+
+#elementHeader {
+    width: 8em;
+}
+
+#trainerHeader {
+    width: 10em;
+}
+
+td {
     text-align: center;
-}
-
-#inputTotal {
-    background-color: #F9F9F9;
-}
-
-label {
-    display: inline-block;
-    text-align: right;
 }
 
 #buttonArea {
     text-align: center;
 }
-
-.submitButtons {
-    width: 15ems;
-    border-radius: 5%;
-}
-
-/* CSS Styles for Modify page */
-
-/* CSS Styles for Delete page */
-
-/* CSS Styles for Display page */

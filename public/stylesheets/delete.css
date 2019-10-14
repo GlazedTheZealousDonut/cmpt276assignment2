@@ -1,6 +1,6 @@
 :root{
     --background_color: #FFFFFF;
-    --navigation_background_color: #EAE7E7;
+    --navigation_background_color: #F9F9F9;
     --navigation_button_color: #FFFFFF;
 
     --normal_color: #C6C6A7;
@@ -11,8 +11,6 @@
     --electric_color: #FAE078;
     --ice_color: #BCE6E6;
     --white: #FFFFFF;
-    --border_color: #FFDE00;
-    --gold_color: #B3A125;
 }
 
 body {
@@ -45,7 +43,7 @@ body {
 
 #navigationBar {
     background-color: var(--navigation_background_color);
-    padding: 0em 0em 0em 0em;
+    padding: 0em .5em 0em .5em;
     margin: 0;
     width: 100%;
     font-size: 0;
@@ -53,19 +51,18 @@ body {
 
 li {
     display: inline;
+    font-size: 10em;    
 }
 
 .navigationButton {
-    background-color: var(--navigation_background_color);
+    background-color: var(--navigation_button_color);
     border: none;
-    padding: 0em 1em 0em 0em;
+    padding: .5em;
     margin: .25em 0em .25em 0em;
 }
 
-h6 {
-    font-size: 2em;
-    padding: .5em 1em .5em 0em;
-    margin: 0em;
+.navigationLink {
+    font-size: 100em;
 }
 
 /* CSS Styles for Home page */
@@ -91,11 +88,6 @@ h6 {
     width: 25em;
 }
 
-.card {
-    border: 5pt solid var(--border_color);
-    border-radius: 5%;
-}
-
 #card1 {
     background-color: var(--flying_color);
 }
@@ -118,14 +110,6 @@ h6 {
 
 #card6 {
     background-color: var(--ice_color);
-}
-
-p {
-    text-align: center;
-}
-
-a {
-    color: black;
 }
 
 /* CSS Styles for Add page */

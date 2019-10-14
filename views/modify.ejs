@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> CMPT276 Assignment 2 </title>
-    <link rel="stylesheet" href="/stylesheets/tokimon.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/stylesheets/modify.css" type="text/css" media="all">
     <script type="text/javascript" src="/js/tokimon.js" defer> </script>
 </head>
 <body>
@@ -12,96 +12,176 @@
             <ul>
                 <li> 
                     <button type="button" class="navigationButton" id="homeButton">
-                    <a class="nagivationLink" id="navigationHome" href="/"> Home </a>
+                    <a class="nagivationLink" id="navigationHome" href="/"> <h6>Home</h6> </a>
                     </button>
                 </li>
                 <li> 
                     <button type="button" class="navigationButton" id="addButton">
-                    <a class="nagivationLink" id="navigationAdd" href="/add"> Add Tokimon </a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="navigationButton" id="modifyButton">
-                    <a class="nagivationLink" id="navigationModify" href="/modify"> Modify Tokimon</a>
-                    </button>
-                </li>
-                <li>
-                    <button type="button" class="navigationButton" id="deleteButton">
-                    <a class="nagivationLink" id="navigationDelete" href="/delete"> Delete Tokimon</a>
+                    <a class="nagivationLink" id="navigationAdd" href="/add"> <h6>Add Tokimon</h6> </a>
                     </button>
                 </li>
                 <li>
                     <button type="button" class="navigationButton" id="displayButton">
-                    <a class="nagivationLink" id="navigationDisplay" href="/display"> Display All Tokimon</a>
+                    <a class="nagivationLink" id="navigationDisplay" href="/display"> <h6>Display All Tokimon</h6></a>
                     </button>
                 </li>
             </ul>
         </div>
 
-        <div class="description" id="modifyDescription">
-        <h1> Adding a Tokimon </h1>
-        <p> To add a Tokimon to the database, please fill out the form and submit it!
-            Please remember that all numbers should be rounded to the nearest whole number.
-        </p>
-        </div>
+        <div class="card" id="cardRegion">
+            <div class="card" id="cardBorder">
+                <div class="cardTop" id="cardTop">
+                    <% if (rows[0].flying > Math.max(rows[0].fighting, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <img src="/pictures/Sylveon.png" alt="Flying Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#EE99AC"; </script>
+                    <% } else if (rows[0].fighting > Math.max(rows[0].flying, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <img src="/pictures/Umbreon.png" alt="Fighting Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#A29288"; </script>
+                    <% } else if (rows[0].fire > Math.max(rows[0].flying, rows[0].fighting, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <img src="/pictures/Flareon.png" alt="Fire Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#F5AC78"; </script>
+                    <% } else if (rows[0].water > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].electric, rows[0].ice)) { %>
+                        <img src="/pictures/Vaporeon.png" alt="Water Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#9DB7F5"; </script>
+                    <% } else if (rows[0].electric > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].water, rows[0].ice)) { %>
+                        <img src="/pictures/Jolteon.png" alt="Electric Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#FAE078"; </script>
+                    <% } else if (rows[0].ice > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].water, rows[0].electric)) { %>
+                        <img src="/pictures/Glaceon.png" alt="Ice Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#BCE6E6"; </script>
+                    <% } else {%>
+                        <img src="/pictures/Eevee.png" alt="Normal Tokimon" class="cardPic" id="cardPic">
+                        <script>document.querySelector("#cardBorder").style.backgroundColor = "#C6C6A7"; </script>
+                    <% } %>
+                </div>
 
-        <div id="formDiv">
-            <form id="form" action="/process.js" method="post">
-                <div id="formTitle"><h1> Add Tokimon </h1></div>
-                <div id="formDiv">
-                    <div class="inputsDiv">
-                    <label for="name">Tokimon Name:</label>
-                    <input class="inputs" id="inputName" type="text" name="name" placeholder="Toki"><br>
-                    </div>
+                <div id="cardMid">
+                    <form id="form" action="/update" method="post">
+                        
+                            <table id="nameTable">
+                            <tr>
+                                <th class="headerRow" id="modifyNameHeader" >Tokimon ID</th>
+                                <th class="headerRow" id="modifyNameHeader" >Name</th>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="height">Tokimon Height (in cm):</label>
-                    <input class="inputs" id="inputHeight" type="number" name="height" placeholder=30 pattern="[0-9]" min="1"><br>
-                    </div>
+                            <tr>
+                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputID" type="number" name="tid" readonly value=<%= rows[0].tid %>></td>
+                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputName" type="text" name="name" required value=<%= rows[0].name %>></td>
+                            </tr>
+                            </table>
 
-                    <div class="inputsDiv">
-                    <label for="weight">Tokimon Weight (in kg):</label>
-                    <input class="inputs" id="inputWeight" type="number" name="weight" placeholder=50 pattern="[0-9]" min="1"><br>
-                    </div>
+                            <table id="formTable">
+                            <tr>
+                                <th class="headerRow" id="modifyHeightWeightHeader">Height</th>
+                                <th class="headerRow" id="modifyHeightWeightHeader">Weight</th>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="flying">Flying Power:</label>
-                    <input class="inputs" id="inputFlying" type="number" name="flying" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <td class="dataRow" id="modifyHeightWeightData"><input class="inputs" id="inputHeight" type="number" name="height" value=<%=rows[0].height%> pattern="[0-9]" min="1"></td>
+                                <td class="dataRow" id="modifyHeightWeightData"><input class="inputs" id="inputWeight" type="number" name="weight" value=<%=rows[0].weight%> pattern="[0-9]" min="1"></td>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="fighting">Fighting Power:</label>
-                    <input class="inputs" id="inputFighting" type="number" name="fighting" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <th class="headerRow" id="modifyFlyingFightingHeader">Flying</th>
+                                <th class="headerRow" id="modifyFlyingFightingHeader">Fighting</th>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="fire"> Fire Power:</label>
-                    <input class="inputs" id="inputFire" type="number" name="fire" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <td class="dataRow" id="modifyFlyingFightingData"><input class="inputs" id="inputFlying" type="number" name="flying" value=<%=rows[0].flying%> pattern="[0-9]" min="0" max="100"></td>
+                                <td class="dataRow" id="modifyFlyingFightingData"><input class="inputs" id="inputFighting" type="number" name="fighting" value=<%=rows[0].fighting%> pattern="[0-9]" min="0" max="100"></td>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="water">Water Power:</label>
-                    <input class="inputs" id="inputWater" type="number" name="water" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <th class="headerRow" id="modifyFireWaterHeader">Fire</th>
+                                <th class="headerRow" id="modifyFireWaterHeader">Water</th>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="electric">Electric Power:</label>
-                    <input class="inputs" id="inputElectric" type="number" name="electric" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <td class="dataRow" id="modifyFireWaterData"><input class="inputs" id="inputFire" type="number" name="fire" value=<%=rows[0].fire%> pattern="[0-9]" min="0" max="100"></td>
+                                <td class="dataRow" id="modifyFireWaterData"><input class="inputs" id="inputWater" type="number" name="water" value=<%=rows[0].water%> pattern="[0-9]" min="0" max="100"></td>
+                            </tr>
 
-                    <div class="inputsDiv">
-                    <label for="ice">Ice Power:</label>
-                    <input class="inputs" id="inputIce" type="number" name="ice" placeholder=50 pattern="[0-9]" min="0" max="100"><br>
-                    </div>
+                            <tr>
+                                <th class="headerRow" id="modifyElectricIceHeader">Electric</th>
+                                <th class="headerRow" id="modifyElectricIceHeader">Ice</th>
+                            </tr>
 
-                    <br>
-                    <div id="buttonArea">
-                        <button class="submitButtons" id="resetButton" type="reset"> Reset </button>
+                            <tr>
+                                <td class="dataRow" id="modifyElectricIceData"><input class="inputs" id="inputElectric" type="number" name="electric" value=<%=rows[0].electric%> pattern="[0-9]" min="0" max="100"></td>
+                                <td class="dataRow" id="modifyElectricIceData"><input class="inputs" id="inputIce" type="number" name="ice" value=<%=rows[0].ice%> pattern="[0-9]" min="0" max="100"></td>
+                            </tr>
+                            </table>
+
+                            <table id=totalTable>
+                            <tr>
+                                <th class="headerRow" id="modifyTotalTrainerNameHeader">Primary Element</th>
+                                <th class="headerRow" id="modifyTotalTrainerNameHeader">Total</th>
+                            </tr>
+                            <tr>
+                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputPrimary" type="text" name="element" readonly></td>
+                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTotal" type="number" name="total" value=<%=rows[0].total%> pattern="[0-9]" min="0" max="600" readonly></td>
+                            </tr>
+                            </table>
+
+                            <table id=trainerTable>
+                            <tr>
+                                <th class="headerRow" id="modifyTotalTrainerNameHeader">Trainer Name</th>
+                            </tr>
+                            <tr>
+                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTrainerName" type="text" name="trainerName" required value=<%=rows[0].trainername%> ></td>
+                            </tr>
+                            </table>
+                            <br>
                         <button class="submitButtons" id="randomizeButton" type="button"> Randomize! </button>
                         <button class="submitButtons" id="submitButton" type="submit"> Submit </button>
-                    </div>
+                    </form>
                 </div>
-            </form>
+
+                <div class="cardButtom" id="cardButtom">
+                    <% if (rows[0].flying > Math.max(rows[0].fighting, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <p>
+                            Flying-type Tokimons have an advantage over fighting-type Tokimons, but are weak
+                            against ice-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Flying"; </script>
+                    <% } else if (rows[0].fighting > Math.max(rows[0].flying, rows[0].fire, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <p>
+                            Fighting-type Tokimons have an advantage over electric-type Tokimons, but are weak
+                            against flying-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Fighting"; </script>
+                    <% } else if (rows[0].fire > Math.max(rows[0].flying, rows[0].fighting, rows[0].water, rows[0].electric, rows[0].ice)) { %>
+                        <p>
+                            Fire-type Tokimons have an advantage over ice-type Tokimons, but are weak
+                            against water-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Fire"; </script>
+                    <% } else if (rows[0].water > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].electric, rows[0].ice)) { %>
+                        <p>
+                            Water-type Tokimons have an advantage over fire-type Tokimons, but are weak
+                            against electric-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Water"; </script>
+                    <% } else if (rows[0].electric > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].water, rows[0].ice)) { %>
+                        <p>
+                            Electric-type Tokimons have an advantage over water-type Tokimons, but are weak
+                            against fighting-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Electric"; </script>
+                    <% } else if (rows[0].ice > Math.max(rows[0].flying, rows[0].fighting, rows[0].fire, rows[0].water, rows[0].electric)) { %>
+                        <p>
+                            Ice-type Tokimons have an advantage over flying-type Tokimons, but are weak
+                            against fire-type Tokimons.
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Ice"; </script>
+                    <% } else { %>
+                        <p>
+                            This Tokimon is equally strong in multiple elements and will be very strong in battle!
+                        </p>
+                        <script> document.querySelector("#inputPrimary").value = "Multiple"; </script>
+                    <% } %>
+                </div>
+            </div>
         </div>
     </div>
 </body>
