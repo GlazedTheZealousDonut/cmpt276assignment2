@@ -74,7 +74,7 @@
 
                             <tr>
                                 <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputID" type="number" name="tid" readonly value=<%= rows[0].tid %>></td>
-                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputName" type="text" name="name" maxlength="20" pattern="[A-Za-z0-9_]" required value=<%= rows[0].name %>></td>
+                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputName" type="text" name="name" maxlength="20" pattern="[A-Za-z0-9_\s]+" required value=<%= rows[0].name %>></td>
                             </tr>
                             </table>
 
@@ -136,7 +136,7 @@
                                 <th class="headerRow" id="modifyTotalTrainerNameHeader">Trainer Name</th>
                             </tr>
                             <tr>
-                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTrainerName" type="text" name="trainerName" maxlength="20" pattern="[A-Za-z0-9_]" required value=<%=rows[0].trainername%> ></td>
+                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTrainerName" type="text" name="trainerName" maxlength="20" pattern="[A-Za-z0-9_\s]+" required value=<%=rows[0].trainername%> ></td>
                             </tr>
                             </table>
                             <br>
