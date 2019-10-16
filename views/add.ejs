@@ -31,7 +31,8 @@
         <div class="description" id="addDescription">
         <h1> Adding a Tokimon </h1>
         <p> To add a Tokimon to the database, please fill out the form and submit it!
-            Please remember that all numbers should be rounded to the nearest whole number.
+            You can give it any name and trainer name using letters, numbers and underscores (up to 20 characters)!
+            Please remember that all numbers should be rounded to the nearest whole number!
         </p>
         </div>
 
@@ -41,7 +42,7 @@
                 <div id="formDiv">
                     <div class="inputsDiv">
                     <label for="name">Tokimon Name:</label>
-                    <input class="inputs" id="inputName" type="text" name="name" placeholder="Toki" required><br>
+                    <input class="inputs" id="inputName" type="text" name="name" placeholder="Toki" maxlength="20" pattern="[A-Za-z0-9_]" required><br>
                     </div>
 
                     <div class="inputsDiv">
@@ -91,7 +92,7 @@
 
                     <div class="inputsDiv">
                     <label for="trainerName">Trainer Name:</label>
-                    <input class="inputs" id="inputTrainerName" type="text" name="trainerName" placeholder="Toki Trainer" required><br>
+                    <input class="inputs" id="inputTrainerName" type="text" name="trainerName" placeholder="TokiTrainer" maxlength="20" pattern="[A-Za-z0-9_]" required><br>
                     </div>
 
                     <br>

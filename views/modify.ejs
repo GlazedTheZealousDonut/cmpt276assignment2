@@ -28,6 +28,14 @@
             </ul>
         </div>
 
+        <div class="description" id="addDescription">
+            <h1> Modifying a Tokimon </h1>
+                <p> Here you can modify a Tokimon!
+                    You can give it any name and trainer name using letters, numbers and underscores (up to 20 characters)!
+                    Please remember that all numbers should be rounded to the nearest whole number! Note that certain attributes cannot be modified.
+                </p>
+        </div>
+
         <div class="card" id="cardRegion">
             <div class="card" id="cardBorder">
                 <div class="cardTop" id="cardTop">
@@ -66,7 +74,7 @@
 
                             <tr>
                                 <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputID" type="number" name="tid" readonly value=<%= rows[0].tid %>></td>
-                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputName" type="text" name="name" required value=<%= rows[0].name %>></td>
+                                <td class="dataRow" id="modifyNameData"><input class="inputs" id="inputName" type="text" name="name" maxlength="20" pattern="[A-Za-z0-9_]" required value=<%= rows[0].name %>></td>
                             </tr>
                             </table>
 
@@ -128,7 +136,7 @@
                                 <th class="headerRow" id="modifyTotalTrainerNameHeader">Trainer Name</th>
                             </tr>
                             <tr>
-                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTrainerName" type="text" name="trainerName" required value=<%=rows[0].trainername%> ></td>
+                                <td class="dataRow" id="modifyTotalTrainerNameData"><input class="inputs" id="inputTrainerName" type="text" name="trainerName" maxlength="20" pattern="[A-Za-z0-9_]" required value=<%=rows[0].trainername%> ></td>
                             </tr>
                             </table>
                             <br>
